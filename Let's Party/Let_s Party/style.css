@@ -1,0 +1,440 @@
+/* 基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFBEC; /* クリーム色の背景 */
+    font-family: 'M PLUS Rounded 1c', sans-serif; /* 丸みのある日本語フォント */
+    color: #222;
+    overflow-x: hidden; /* 装飾のはみ出し防止 */
+}
+
+/* ヒーローセクション */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative; /* 装飾の基準点 */
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+/* ★ちりばめる画像の共通スタイル（ステッカー風） */
+.scatter-img {
+    position: absolute;
+    border-radius: 10%; /* 丸く切り抜く（四角でもOK） */
+    border: 8px solid #fff; /* 白い縁取り */
+    box-shadow: 6px 6px 0px rgba(34, 34, 34, 0.2); /* 軽い影 */
+    z-index: 1; /* 文字の後ろ */
+    object-fit:fill;
+}
+
+.hero-date {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    background-color: #FFD166; /* イエローのハイライト */
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 50px; /* 丸いタグ風 */
+    margin-bottom: 30px;
+}
+
+.hero-title {
+    font-family: 'Poppins', sans-serif; /* 力強くも少し丸みのある欧文 */
+    font-size: clamp(3rem, 12vw, 8rem);
+    line-height: 1.0;
+    font-weight: 900;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 0 #fff; /* 文字をくっきりさせる白縁取り */
+}
+
+/* 文字の色分け */
+.color-1 { color: #FF6B6B; } /* ピンク */
+.color-2 { color: #222; }    /* グレー */
+.color-3 { color: #4ECDC4; } /* ミント */
+
+.hero-location {
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+}
+
+/* 弾けるキャンディ装飾 (CSSで丸を作る) */
+.deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: -1; /* 文字の後ろ */
+}
+
+.c1 {
+    width: 150px; height: 150px;
+    background-color: #FF6B6B;
+    top: 200px; left: -100px;
+}
+
+.c2 {
+    width: 50px; height: 50px;
+    background-color: #FFD166;
+    bottom: 0; right: -80px;
+}
+
+.c3 {
+    width: 80px; height: 80px;
+    background-color: #4ECDC4;
+    top: -30px; right: -10px;
+}
+
+/* ★個別配置（ここをご自身の画像のバランスに合わせて調整します） */
+
+/* 左上：大きなキャンディ */
+.img1 {
+    width: 250px; height: 250px;
+    top: 100px; left: -50px;
+    transform: rotate(-15deg);
+}
+
+/* 右上：ダンサー */
+.img2 {
+    width: 180px; height: 180px;
+    top: 50px; right: -50px;
+    transform: rotate(10deg);
+}
+
+/* 右下：小さなキャンディ */
+.img3 {
+    width: 120px; height: 120px;
+    bottom: 80px; right: 100px;
+    transform: rotate(-10deg);
+}
+
+/* 左下：ダンサー */
+.img4 {
+    width: 200px; height: 200px;
+    bottom: -30px; left: 50px;
+    transform: rotate(20deg);
+}
+
+
+/* ABOUTセクション */
+.about {
+    padding: 100px 20px;
+    background-color: #fff; /* 背景を白にしてスッキリさせる */
+}
+
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-head {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    color: #FFD166;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-catch {
+    font-size: 2rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: #FF6B6B;
+}
+
+.about-description {
+    font-size: 1rem;
+    line-height: 2;
+    margin-bottom: 40px;
+}
+
+/* 右側のポイント（バッジ風） */
+.about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feature-item {
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transform: rotate(-2deg); /* 少し斜めにしてリズムを出す */
+}
+
+.feature-item.f1 { background-color: #FF6B6B; color: #fff; }
+.feature-item.f2 { background-color: #4ECDC4; color: #fff; transform: rotate(2deg); }
+.feature-item.f3 { background-color: #FFD166; color: #222; }
+
+.feature-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid currentColor;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.feature-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* チケットボタン */
+.btn-ticket {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #222;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: transform 0.3s;
+}
+
+.btn-ticket:hover {
+    transform: scale(1.1) rotate(3deg);
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.timetable {
+    padding: 100px 20px;
+    background-color: #FFFBEC; /* ヒーローと同じクリーム色 */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    color: #222;
+    margin-bottom: 60px;
+}
+
+/* タイムラインの構造 */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.time-row {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.time {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    min-width: 80px;
+    color: #222;
+}
+
+/* イベントボックス共通 */
+.event-box {
+    flex-grow: 1;
+    padding: 20px 30px;
+    border-radius: 20px;
+    box-shadow: 6px 6px 0px #222; /* ポップな太めの影 */
+    transition: transform 0.2s;
+}
+
+.event-box:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0px #222;
+}
+
+.event-tag {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.event-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* 個別カラー */
+.b-pink { background-color: #FF6B6B; color: #fff; }
+.b-blue { background-color: #4ECDC4; color: #fff; }
+.b-yellow { background-color: #FFD166; color: #222; }
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    .time-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/* フッター全体 */
+.main-footer {
+    background-color: #222; /* 締めくくりはダークトーンで引き締める */
+    color: #fff;
+    padding: 80px 20px 40px;
+    position: relative;
+    margin-top: 100px;
+}
+
+/* 上部のカラフルなライン装飾 */
+.main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #FFD166, #FF6B6B);
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* キャッチコピー */
+.footer-catch {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.catch-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2rem, 8vw, 4rem);
+    font-weight: 900;
+    color: #FFD166; /* レモンイエロー */
+    letter-spacing: 0.05em;
+    text-shadow: 4px 4px 0px #FF6B6B;
+}
+
+/* フッターの中身 */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-top: 1px solid #444;
+    padding-top: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.footer-sns {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-sns a {
+    color: #4ECDC4;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #FF6B6B;
+}
+
+/* コピーライト */
+.copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 40px;
+}
+
+
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    .footer-sns {
+        justify-content: center;
+    }
+    .footer-links li {
+        text-align: center;
+    }
+}
+
+.fixed-banner {
+    position: fixed;   /* これで画面に固定されます */
+    bottom: 30px;      /* 画面の下から30px */
+    right: 30px;       /* 画面の右から30px */
+    width: 120px;      /* 画像のサイズ */
+    z-index: 1000;     /* 一番手前に表示 */
+    cursor: pointer;   /* マウスを乗せると指マークに */
+    transition: transform 0.5s ease;
+}
+
+/* ホバーした時に少し動かすとさらにポップ！ */
+.fixed-banner:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* スマホだと邪魔になる場合は少し小さくするか消す設定 */
+@media (max-width: 768px) {
+    .fixed-banner {
+        width: 80px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
